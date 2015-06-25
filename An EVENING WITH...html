@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    	<meta charset="utf-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, target-densityDpi=320, user-scalable=no">
+        <link href="http://camilla.nextgengaming.com/demosite_v2/gdm.mobile.gk/games/aneveningwithhollymadison/apple-touch-icon-iphone4.png" id="icon" rel="apple-touch-icon" sizes="114x114">
+        <title id="title">An EVENING WITH..</title>
+         <style type="text/css">
+		   iframe { display:block; border:none; }
+			body {
+			  -webkit-user-select: none;
+			  -khtml-user-select: none;
+			  -moz-user-select: none;
+			  -o-user-select: none;
+			  user-select: none;
+			}
+          </style>
+          <script type="text/javascript" src="An%20EVENING%20WITH.._files/jquery-2.js"></script>
+          <script type="text/javascript" src="An%20EVENING%20WITH.._files/mobile.js"></script>
+          
+          <script type="text/javascript">
+			
+			// In this example the following parameters are passed through the URL, but should be looked up appropriately as needed by the host system.
+			var serverAddress = gup('server');		//The IP address and port of the GDM game servers
+			var playerName    = gup('pid');			//The player ID
+			var gameName      = gup('gname');		//Name of the game to load
+			var directory	  = gup('dir');			//Tells the wrapper where to load the game from.
+			var delay		  = gup('delay')==""?"0":gup('delay');
+			document.getElementById("icon").setAttribute("href", "games/"+gameName+"/apple-touch-icon-iphone4.png");
+			
+			// -------- GAME API-----------------
+//			var languageCode  = "en";				//Tells the game which language to load.
+			var languageCode  = gup('lcode')==""?"en":gup('lcode');			//Tells the wrapper where to load the game from.
+			//-----------------------------------
+			
+			
+			// ----------- WRAPPER API -------------
+			// The game will call this function when the home button is pressed.
+			// --------------------------------------
+			function homeButtonPressed() {
+				//TODO: Insert any code here specific to what you want to happen when the HOME button is pressed in the game.
+					
+				//if we want to let the game handle the home button press then return 0.
+				// Return 1 if the button is handled here in the wrapper. (returning 0 will open the in-game option screen)
+				return 0;	
+				
+				//location.replace("http://camilla.nextgengaming.com/launch/mobile");
+				//return 1;
+			}
+			
+			
+			function valueChanged(name,value) {
+				console.log(name + ": " + value);
+			}
+
+			var mute = false;
+			
+			// ----------- WRAPPER API -------------
+			// The game will call this function when the game button is pressed.
+			// --------------------------------------
+			function gameButtonPressed(buttonID) {
+				//TODO: Insert any code here specific to what you want to happen when the PLAY SLOT button is pressed in the game.
+				if (buttonID == "PLAY_SLOT") {
+					//gameiframe.contentWindow.apiExt(buttonID, function(){});
+					gameiframe.contentWindow.apiExt(buttonID, "Confirm", "Are you sure you want to play slot?", function(){});
+				} else if (buttonID == "CASHIER")
+				{
+					mute = !mute;
+					gameiframe.contentWindow.apiExt("PAUSE_AUTOPLAY", mute);
+//					gameiframe.contentWindow.apiExt("SET_MUTE", mute);
+					//gameiframe.contentWindow.apiExt("MSG_POP_UP", "", "Cashier button pressed");
+				}
+			}
+			
+			// ----------- WRAPPER API -------------
+			// The game will call this function when all the assets are loaded.
+			// --------------------------------------
+			function gameReady() {
+				document.title = gameiframe.contentWindow.document.title;
+				gameiframe.contentWindow.apiExt("HIDE_PORTRAIT_MODE", true);
+//				gameiframe.contentWindow.apiExt("SET_MAX_AUTOPLAYS", 25);
+				gameiframe.contentWindow.apiExt("SHOW_CASHIER_BUTTON", true);
+				//gameiframe.contentWindow.apiExt("CONFIRM_POP_UP",  "EXIT", "Are you sure you want to leave the game?", function() {alert("111")});
+				//gameiframe.contentWindow.apiExt("SHOW_HOME_BUTTON", false);
+				
+				//gameiframe.contentWindow.apiExt("SET_CLIENT_PLATFORM", 2, "//nexus.ensighten.com/williamhill/dev/Bootstrap.js");
+				nggGameReady();
+//				gameiframe.contentWindow.apiExt("SET_CLIENT_PLATFORM", 1, "//nexus.ensighten.com/williamhill/mobile-dev/Bootstrap.js");
+				
+			}
+
+			// ----------- WRAPPER API -------------
+			// This function is called by the game to find out to what scale it needs to set itself to.
+			// --------------------------------------
+			function getSize() {
+				return nggGetSize();
+			}
+			
+			// ----------- WRAPPER API -------------
+			// error notification from within the game
+			// --------------------------------------
+			function error(error_code) {
+				// TODO: Do any special error handling here in the wrapper based on the error code.
+				// (the game will display an error message)
+			}
+
+
+			
+			// ----------- WRAPPER API -------------
+			// The game will call this function when it needs to send a message to the server.
+			// TODO: Update this function to suit your communication layer requirements.
+			// --------------------------------------
+			function sendMsgToServer(gameMsg) {
+				var xmlHttpReq = false;
+				var self = this;
+				// Mozilla/Safari
+				if (window.XMLHttpRequest) {
+					self.xmlHttpReq = new XMLHttpRequest();
+				}
+				// IE
+				else if (window.ActiveXObject) {
+					self.xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+									
+				//TODO: Set the correct server address and construct the message
+				//NOTE: Timestamp is appended to the message for iOS 6 as it will cache identical requests.
+				var msg = "http://" + serverAddress + "?GN=" + gameName + "&PID="+ playerName + gameMsg +"&timeStamp="+Date.now();
+				
+				$.ajax({
+					url: msg,
+					type: "get",
+					timeout: 500000,
+					success: function(data){
+						setTimeout(function () {
+							gameiframe.contentWindow.processServerMsg(data);
+						}, delay);
+					},
+					error:function(jqXHR, textStatus, errorThrown){
+					}
+				});
+			};
+				
+/*				
+			function processTouchStartIOS8(e) {
+				gameiframe.contentWindow.game.processClick({x:e.changedTouches[0].pageX, y:e.changedTouches[0].pageY},e);
+			}
+			 
+			function processTouchEndIOS8(e) {
+				gameiframe.contentWindow.game.processClickRelease({x:e.changedTouches[0].pageX, y:e.changedTouches[0].pageY},e);
+				gameiframe.contentWindow.game.buttonsUp();
+			}
+
+			function processTouchMoveIOS8(e) {
+//				alert("touchmove");
+				$(gameiframe.contentWindow).scrollTop(200); //({x:e.changedTouches[0].pageX, y:e.changedTouches[0].pageY},e);
+			}
+*/
+				
+			// loadgame() function
+			$(function(){
+				//gameiframe is decleared in mobile.js file
+				gameiframe = document.getElementById("gameiframe");
+				//TODO: Set the correct location of the game's index file.
+				gameiframe.src="http://camilla.nextgengaming.com/demosite_v2/" + directory + "/" + gameName + "/index.htm";
+				initIframe();
+//				window.addEventListener( 'touchstart', processTouchStartIOS8, true ); 
+//				window.addEventListener( 'touchend', processTouchEndIOS8, true ); 
+//				window.addEventListener( 'touchmove', processTouchMoveIOS8, true ); 
+			});
+			
+    	</script>
+    </head>
+    <body style="border:none; margin:0; padding:0; background:#fff;">
+    	<iframe id="gameiframe" src="An%20EVENING%20WITH.._files/index.html" style="border:none; background-color:#000000; margin:0; padding:0; overflow:auto; width:100%" scrolling="yes" height="1018" width="1196"></iframe>
+    
+</body></html>

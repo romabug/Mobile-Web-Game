@@ -1,0 +1,249 @@
+html,body {
+    margin:0px;
+    padding:0px;
+    width:  100%;
+    height: 100%;
+   	font-family:Arial; 
+	font-size: 10px;
+	-webkit-text-size-adjust:none;
+}
+
+.bdCSS {
+	background: #e5c437; /* Old browsers */
+	background: -moz-linear-gradient(top, #e5c437 0%, #afd152 54%, #53810d 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5c437), color-stop(54%,#afd152), color-stop(100%,#53810d)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #e5c437 0%,#afd152 54%,#53810d 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #e5c437 0%,#afd152 54%,#53810d 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #e5c437 0%,#afd152 54%,#53810d 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #e5c437 0%,#afd152 54%,#53810d 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5c437', endColorstr='#53810d',GradientType=0 ); /* IE6-9 */
+	background-image:url('BG_Pattern.jpg');
+}
+
+  canvas{
+    outline:0;
+    border:0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.divhelp
+{
+    background: #afd152; /* Old browsers */
+    background: -moz-linear-gradient(top,  #53810d 0%, #afd152 50%, #53810d 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#53810d), color-stop(50%,#afd152), color-stop(100%,#53810d)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #53810d 0%,#afd152 50%,#53810d 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #53810d 0%,#afd152 50%,#53810d 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #53810d 0%,#afd152 50%,#53810d 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #53810d 0%,#afd152 50%,#53810d 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#53810d', endColorstr='#afd152',GradientType=0 ); /* IE6-9 */
+	background-image:url('BG_Pattern.jpg');
+}
+
+span.meterLabel
+{
+	color: #FFFF00;
+	font-size: 24px;	/*NOTE: This font size can be overridden within language.js for specific languages*/
+	text-shadow:1px 1px 1px #000000;
+}  
+
+span.meterValue
+{
+	color: #FFFFFF;
+	font-size: 24px;	/*NOTE: This font size can be overridden within language.js for specific languages*/
+	text-shadow:1px 1px 1px #000000;
+}
+
+  
+p.count, p.wildtitle, p.scattertitle
+{
+	font-family: arial;
+	font-weight: bold;
+	font-size: 22px;
+	text-decoration: none;
+	text-shadow:2px 2px 2px #000;
+	padding: 0;
+	margin: 0;
+}
+p.count{
+	font-size: 20px;
+	color: #FF0;
+}
+p.wildtitle {
+	color: #82c22a;
+}
+p.scattertitle{
+	color: #df332b;
+}
+
+p.amount
+{
+	font-family: arial;
+	font-weight: bold;
+	font-size: 20px;
+	text-decoration: none;
+	color: #ffffcc;
+	text-shadow:1px 1px 2px #000;
+	padding: 0;
+	margin: 0;
+}
+
+p.ofakind
+{
+    width:120px;
+    overflow:visible;
+    white-space: nowrap;
+}
+
+p.ofakind,  p.paysany
+{
+	text-align:left;
+	font-family: arial;
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration: none;
+	color: #FF0;
+	text-shadow:1px 1px 2px #000;
+	margin: 0 6px;
+	padding: 0;
+}
+
+p.wildrule, p.scatterrule
+ {
+	font-family: arial;
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration: none;
+	color: #FFF;
+	text-shadow:2px 2px 2px #000;
+	padding: 0;
+	margin: 0 0 0 20px;
+}
+
+p.titlerules, p.titlefree, p.titlepick
+{
+	font-family: arial;
+	font-weight: bold;
+	font-size: 22px;
+	text-decoration: none;
+	text-align: center;
+	color: #FF0;
+	text-shadow:1px 1px 2px #000;
+}
+p.rules
+{
+	font-family: arial;
+	font-weight: bold;
+	font-size: 22px;
+	text-decoration: none;
+	text-align: center;
+	color: #FFF;
+	text-shadow:1px 1px 2px #000;
+}
+
+.helpblockbackground {
+background: #2c539e; /* Old browsers */
+background: -moz-linear-gradient(top,  #2c539e 0%, #1b2a60 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2c539e), color-stop(100%,#1b2a60)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #2c539e 0%,#1b2a60 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #2c539e 0%,#1b2a60 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #2c539e 0%,#1b2a60 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #2c539e 0%,#1b2a60 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', endColorstr='#1b2a60',GradientType=0 ); /* IE6-9 */
+
+
+	
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 5px solid rgba(233, 29, 225, 0.39);  
+	/*  old rgba(221, 198, 137,.5)  */
+	-webkit-box-shadow: 0px 0px 5px 4px #000;
+	   -moz-box-shadow: 0px 0px 5px 4px #000;
+		-ms-box-shadow:	0px 0px 5px 4px #000;
+			box-shadow: 0px 0px 5px 4px #000;
+	
+	padding:10px;
+	margin-right:10px;
+	margin-bottom:10px;
+}
+div.helpblockbackground{
+	padding:10px 10px 15px;
+}
+
+#c {
+}
+
+ul.helptext {
+	font-size:20px;
+	color: #FFF;
+}
+.exitHelp {
+	font-size:16px;
+	color:FFF
+}
+.helpMeterBlock {
+	display: inline-block; 
+	margin-left: 10px; 
+	margin-bottom: 10px;
+}
+.highlight {
+	color: #00F;
+	font-weight: bold;
+}
+
+#meters {
+background: #ff0084; /* Old browsers */
+background: -moz-linear-gradient(top, #ff0084 0%, #ff0084 46%, #ff47a3 51%, #ff309b 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff0084), color-stop(46%,#ff0084), color-stop(51%,#ff47a3), color-stop(100%,#ff309b)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ff0084 0%,#ff0084 46%,#ff47a3 51%,#ff309b 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ff0084 0%,#ff0084 46%,#ff47a3 51%,#ff309b 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ff0084 0%,#ff0084 46%,#ff47a3 51%,#ff309b 100%); /* IE10+ */
+background: linear-gradient(to bottom, #ff0084 0%,#ff0084 46%,#ff47a3 51%,#ff309b 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0084', endColorstr='#ff309b',GradientType=0 ); /* IE6-9 */
+
+	border-collapse: collapse;
+	text-align:left;
+	background-color: #116b2e;
+	border-color: #116b2e;
+	width: 100%;
+}
+
+#test {
+	color: #FFF;
+}
+.rulesText {
+	font-size: 12px;
+}
+
+/***************************************
+Handle popup and message box
+***************************************/
+.overlay {
+	top:32px; 
+	display: none; 
+	position: fixed; 
+	width:100%; 
+	height:100%; 
+	background:#000; 
+	opacity:.70; 
+	filter:alpha(opacity=70); 
+	filter: 'alpha(opacity=70)';
+}
+
+#popup {
+	top: 32px;
+	width: 100%; 
+	background:#CCC; 
+	display: none; 
+	position: fixed;
+	z-index:11;
+}
+
+
+h1.rtp {
+	color: #FFF;
+}
+
+
+
+ 

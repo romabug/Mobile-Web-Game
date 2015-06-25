@@ -1,0 +1,243 @@
+html {
+    width:  100%;
+    height: 100%;
+}
+
+body {
+    margin:0px;
+    padding:0px;
+    width:  100%;
+    height: 100%;
+   	font-family:Arial; 
+	font-size: 10px;
+	-webkit-text-size-adjust:none;
+  }
+.bdCSS {
+	background:url('BG_Pattern.jpg');
+}
+
+  canvas{
+    outline:0;
+    border:0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+.divhelp 
+{
+	background:url('BG_Pattern.jpg');
+}  
+  
+span.meterLabel
+{
+	color: #FFFFFF;
+	font-size: 24px;
+}  
+
+span.meterValue
+{
+	color: #FFCC40;
+	font-size: 24px;
+}
+  
+p.count, p.wildtitle, p.scattertitle
+{
+	font-family: arial;
+	font-weight: bold;
+	font-size: 22px;
+	text-decoration: none;
+	text-shadow:2px 2px 2px #000;
+	padding: 0;
+	margin: 0;
+}
+p.count{
+	font-size: 20px;
+	color: #FF0;
+}
+p.wildtitle {
+	color: #52A21D;
+}
+p.scattertitle{
+	color: #0883B8;
+}
+
+p.amount
+{
+	font-family: arial;
+	font-weight: bold;
+	font-size: 20px;
+	text-decoration: none;
+	color: #FFF;
+	text-shadow:1px 1px 2px #000;
+	padding: 0;
+	margin: 0;
+}
+
+p.ofakind
+{
+    overflow:visible;
+    width:120px;
+    white-space: nowrap;
+}
+
+p.ofakind,  p.paysany
+{
+	text-align:left;
+	font-family: arial;
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration: none;
+	color: #FF0;
+	text-shadow:1px 1px 2px #000;
+	margin: 0 6px;
+	padding: 0;
+}
+
+p.wildrule, p.scatterrule
+ {
+	font-family: arial;
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration: none;
+	color: #FFF;
+	text-shadow:2px 2px 2px #000;
+	padding: 0;
+	margin: 0 0 0 20px;
+}
+
+p.titlerules, p.titlefree
+{
+	font-family: arial;
+	font-weight: bold;
+	font-size: 22px;
+	text-decoration: none;
+	text-align: center;
+	color: #FF0;
+	text-shadow:1px 1px 2px #000;
+}
+p.rules
+{
+	font-family: arial;
+	font-weight: bold;
+	font-size: 22px;
+	text-decoration: none;
+	text-align: center;
+	color: #FFF;
+	text-shadow:1px 1px 2px #000;
+}
+
+.helpblockbackground {
+	background: rgb(119, 56, 48); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(128,120,88,1) 0%, rgba(111, 100,70, 1) 50%, rgba(73, 64, 40, 1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(128,120,88,1)), color-stop(50%,rgba(111, 100,70, 1)), color-stop(100%,rgba(73, 64, 40,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(128,120,88,1) 0%,rgba(111, 100,70, 1) 50%,rgba(73, 64, 40,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(128,120,88,1) 0%,rgba(111, 100,70, 1) 50%,rgba(73, 64, 40,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(128,120,88,1) 0%,rgba(111, 100,70, 1) 50%,rgba(73, 64, 40,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(128,120,88,1) 0%,rgba(111, 100,70, 1) 50%,rgba(73, 64, 40,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#de0029', endColorstr='#20000b',GradientType=0 ); /* IE6-9 */
+
+	
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 5px solid rgba(221, 198, 137,.5);
+	-webkit-box-shadow: 0px 0px 5px 4px #000;
+	   -moz-box-shadow: 0px 0px 5px 4px #000;
+		-ms-box-shadow:	0px 0px 5px 4px #000;
+			box-shadow: 0px 0px 5px 4px #000;
+	
+	padding:10px;
+	margin-right:10px;
+	margin-bottom:10px;
+}
+div.helpblockbackground{
+	padding:10px 10px 15px;
+}
+
+#c {
+}
+
+#meters {
+background: rgb(69,72,77); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(69,72,77,1) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(69,72,77,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+ul.helptext {
+	font-size:20px;
+	color: #FFF;
+}
+.exitHelp {
+	font-size:16px;
+	color:FFF
+}
+.helpMeterBlock {
+	display: inline-block; 
+	margin-left: 10px; 
+	margin-bottom: 10px;
+}
+#helpDiv1 .helpMeterBlock td{
+	vertical-align:top;
+}
+#helpDiv1 .helpMeterBlock table table img {
+	margin-top: 5px; 
+}
+
+.highlight {
+	color: #00F;
+	font-weight: bold;
+}
+
+#meters {
+	border-collapse: collapse;
+	text-align:left;
+	background-color: #116b2e;
+	border-color: #116b2e;
+	width: 100%;
+}
+#test {
+	color: #FFF;
+}
+.rulesText {
+	font-size: 12px;
+}
+
+/***************************************
+Handle popup and message box
+***************************************/
+.overlay {
+	top:32px; 
+	display: none; 
+	position: fixed; 
+	width:100%; 
+	height:100%; 
+	background:#000; 
+	opacity:.70; 
+	filter:alpha(opacity=70); 
+	filter: 'alpha(opacity=70)';
+}
+
+#popup {
+	top: 32px;
+	width: 100%; 
+	background:#CCC; 
+	display: none; 
+	position: fixed;
+	z-index:11;
+}
+
+h1, .paytablecopy  /* copyright  and version */
+{
+    color:#FFF;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h1.rtp {
+	color: #FFF;
+}

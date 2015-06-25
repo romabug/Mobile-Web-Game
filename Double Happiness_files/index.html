@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Double Happiness</title>
+	  <meta name="apple-mobile-web-app-capable" content="yes">
+	  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <meta id="viewport" name="viewport">
+      <meta charset="UTF-8">
+      <link href="index_data/common_ipad.css" rel="stylesheet" type="text/css" id="commoncss">
+	  <link rel="apple-touch-icon" sizes="114x114" href="http://camilla.nextgengaming.com/demosite_v2/gdm.mobile.gk/games/doublehappiness/apple-touch-icon-iphone4.png">
+	  <link rel="stylesheet" type="text/css" href="index_data/game.css">
+      
+
+      <script>
+		  (function(doc) {
+				if ( navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
+					doc.getElementById("commoncss").setAttribute("href", "../common/common.css")
+				} else if ( navigator.userAgent.match(/iPad/i) ) {
+					doc.getElementById("commoncss").setAttribute("href", "../common/common_ipad.css")
+				} else {
+					doc.getElementById("commoncss").setAttribute("href", "../common/common_ipad.css")
+				}
+		  }(document));
+	  </script>
+      
+  <style>.scrollable{-webkit-transform:translate3d(0,0,0)}.scrollability-scrollbar{position:absolute;top:0;right:2px;width:7px;height:1px;z-index:2147483647;opacity:0;-webkit-transform:translate3d(0,0,0);-webkit-box-sizing:border-box;-webkit-transform-origin:top left;background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAABCAYAAADuHp8EAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC5JREFUeNpi/P//vyQDAwMjKytr2Z8/f9gYIICRAQH+Q/n/WVhYfgNBJ4gNEGAAhVUOGMTI0TwAAAAASUVORK5CYII=") no-repeat}</style><style></style></head>
+  
+  <body onload="load()" class="bdCSS" bgcolor="#000000">
+  		<div style="margin:0 auto;">
+            <div style="top: 0px; width: 1140px; height: 758px;" id="overlay" class="overlay"></div>
+            <div style="top: 0px; width: 1140px;" id="popup"><div style="margin:20px; text-align:left; font-size: 20px;" id="ops"><p>
+<style>
+.swiper-container {
+    backface-visibility: hidden;
+    /*margin: 0 auto;*/
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+	float:left; 
+	margin:3px;
+}
+.swiper-wrapper {
+    position: relative;
+    transform: translate3d(0px, 0px, 0px);
+    transition-duration: 0s;
+    transition-property: transform, left, top;
+    transition-timing-function: ease;
+    width: 100%;
+}
+.swiper-free-mode > .swiper-wrapper {
+    margin: 0 auto;
+    transition-timing-function: ease-out;
+}
+.swiper-slide {
+    float: left;
+}
+</style>
+
+  
+  
+</p>
+<p>
+<br>
+Testing Options
+<br>
+</p>
+<p>
+	</p><form name="debugform">
+        <input value="Test" onclick="test()" class="popupButon" type="button">
+        <input value="Test2" onclick="test2()" class="popupButon" type="button">
+        <input name="restore2" value="Last stops" onclick="setLastStops();" class="popupButon" type="button">
+        <input name="stops" style="font-size: 20px;" type="text">
+        <input value="Clear" onclick="clearIt()" class="popupButon" type="button">
+        
+        <p>
+        <input name="save" value="Save stops" onclick="saveStops()" class="popupButon" type="button">
+        <input value="DoubleHappiness.mp3" name="savedStops" style="font-size: 20px;" readonly="readonly" type="text">
+        <input name="restore1" value="Restore" onclick="restoreStops()" class="popupButon" type="button">
+        </p>
+        
+        <p>Use only for development:</p>
+        <input value="Zero Bal" onclick="DEBUG_CLEAR_BALANCE()" class="popupButon" type="button">
+        <input value="Paylines" onclick="DEBUG_SHOW_PAYLINES()" class="popupButon" type="button">
+        <input value="Flash Symbols" onclick="DEBUG_FLASH_ALL_SYMBOLS()" class="popupButon" type="button">
+        <input value="Max Meters" onclick="DEBUG_MAX_METERS()" class="popupButon" type="button">
+        <input value="Error" onclick="DEBUG_ERROR_MSG()" class="popupButon" type="button">
+        <input value="Cur" onclick="DEBUG_CURRENCY()" class="popupButon" type="button">
+        <input value="Fast" onclick="DEBUG_FAST_SPIN()" class="popupButon" type="button">
+        <input value="Home Button" onclick="DEBUG_HOME_BUTTON_DURING_SPIN()" class="popupButon" type="button">
+        <input value="Set Stops" onclick="constructReelOptions()" class="popupButon" type="button">
+        <input value="Old Meters" onclick="SHOW_OLD_METERS()" class="popupButon" type="button">
+        <input value="Clock" onclick="SHOW_CLOCK()" class="popupButon" type="button">
+    </form>
+<p></p>
+<p>
+    <span class="hide">
+        <input value="Hide" class="popupButon" type="button">
+    </span>
+</p>
+</div>
+<div style="margin:20px; font-size: 20px; display:none;" id="reelPanel">
+	<p>Swipe reels to set the reel stops</p>
+	<div id="reelOptions"></div>
+    <div style="clear:both"></div>
+</div></div>
+            
+            <div id="game" style="margin: 0px auto; visibility: visible; display: block;">
+                <canvas style="opacity: 1; width: 1140px; height: 712px;" height="600" id="c" width="960"></canvas>
+			</div>
+
+            
+            <script src="index_data/jquery.js"></script>
+		    <script src="index_data/howler.js"></script>
+    		<script src="index_data/howler_wrapper.js"></script>
+            <script src="index_data/gameConfig.js"></script>
+			<script src="index_data/loadLanguage.js"></script><script type="text/javascript" src="index_data/language.js"></script>
+			<script src="index_data/layout.js"></script>
+			<script src="index_data/ui_layout.js"></script>
+			<script src="index_data/ui.js"></script>
+            <script src="index_data/utils.js"></script>
+            <script src="index_data/slots.js"></script>
+            <script src="index_data/free_rounds.js"></script>
+            <script src="index_data/AF2.js"></script>
+            <script src="index_data/api_extension.js"></script>
+			<script src="index_data/welcome.js"></script>
+            <script src="index_data/core2.js"></script>
+            <script src="index_data/scrollability.js"></script>
+            <script src="index_data/game.js"></script>
+            <script src="index_data/freespins.js"></script>
+            <script src="index_data/ipadconfig.js"></script>
+    	</div>
+    	<div style="display: none;" id="help" style.display="none" class="divhelp"></div>
+  
+<div id="msgOverlay" class="msgOverlay"></div><div id="msgBox" class="msgBox"><div id="msgBox_2" class="msgBox_2"><div id="msgCaption" class="msgCaption"></div><div id="msgContent" class="msgContent"></div><div id="msgButtons" class="msgButtons"></div></div></div></body></html>
